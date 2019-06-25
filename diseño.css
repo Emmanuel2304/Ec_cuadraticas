@@ -1,0 +1,44 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+#numeros{
+  text-align: center;
+  background: rgba(0,0,255,0.2);
+  margin: auto;
+  width: 30%;
+  height: auto;
+  font-family: century gothic;
+}
+input[type=number]{
+  width: 8%;
+  height: 25px;
+  font-size:18px;
+  text-align: center;
+  background: gray;
+  border: none;
+  border-radius: 5px;
+  -moz-appearance:textfield;
+  /*-webkit-appearance:textfield;*/
+}
+#botons{
+  background: none;
+  text-align: center;
+  margin: auto;
+  width: 30%;
+  height: auto;
+}
+#texto{
+  /*border-top:solid 1px black;*/
+  width: auto;
+  height: auto;
+  background:#fff;
+  color:#000;
+  text-align: center;
+  margin: auto;
+  margin-top:10px;
+  -webkit-box-shadow: -5px 2px 7px 4px rgba(0,0,0,0.3);
+}
+#tabla{
+  margin: auto;
+}
