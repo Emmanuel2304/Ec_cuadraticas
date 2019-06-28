@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Ecuaciones cuadráticas</title>
-    <link rel="stylesheet" href="diseño.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <title>Ecuaciones cuadráticas</title>
+      <link rel="stylesheet" href="diseño.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
   </head>
   <body>
     <div id="numeros">
@@ -12,12 +13,14 @@
       <table id="tabla" border="0">
         <tr>
           <td width="250" height="40" align="center">
-          <input type="number" id="A" placeholder="A"> <label for="">X<sup>2</sup>+</label>
-          <input type="number" id="B" placeholder="B"> <label for="">X+</label>
+          <input type="number" id="A" placeholder="A"> <label for="">X<sup>2</sup> + </label>
+          <input type="number" id="B" placeholder="B"> <label for="">X + </label>
           <input type="number" id="C" placeholder="C"> <label for=""> = 0</label>
           </td>
           <td>
-            <button type="button" name="button" onclick="Raices()" class="btn btn-primary">Calcular raices</button>
+            <button type="button" name="button" onclick="Raices()" class="btn btn-primary">
+              Calcular raices
+            </button>
           </td>
         </tr>
         <tr height="5">
@@ -26,8 +29,8 @@
         </tr>
         <tr>
           <td width="250" height="40" align="center">
-            <label>(X-</label><input type="number" id="a1" placeholder="a"/><label>)</label>
-            <label>(X-</label><input type="number" id="b1" placeholder="b"/><label>) = 0</label>
+            <label>(X + </label><input type="number" id="a1" placeholder="a"/><label>)</label>
+            <label>(X + </label><input type="number" id="b1" placeholder="b"/><label>) = 0</label>
           </td>
           <td>
             <button type="button" onclick="Factores1()" class="btn btn-primary">Calcular raices</button>
@@ -39,26 +42,25 @@
         </tr>
         <tr>
           <td>
-            <label>(</label><input type="number" id="r1" placeholder="r1"><label>X-</label><input type="number" id="x1" placeholder="a1"/><label>)</label>
-            <label>(</label><input type="number" id="r2" placeholder="r2"><label>X-</label><input type="number" id="x2" placeholder="a2"/><label>) = 0</label>
+            <label>(</label><input type="number" id="r1" placeholder="r1"><label>X + </label><input type="number" id="x1" placeholder="a1"/><label>)</label>
+            <label>(</label><input type="number" id="r2" placeholder="r2"><label>X + </label><input type="number" id="x2" placeholder="a2"/><label>) = 0</label>
           </td>
           <td>
             <button type="button" name="button" onclick="Factores2()" class="btn btn-primary">Calcular raices</button>
           </td>
         </tr>
       </table>
-
-
+      <br>
     </div>
-
     <br>
     <div id="botons">
       <button type="button" name="button" onclick="Reset()" class="btn btn-primary">Reset</button>
-
-      <div id="texto"></div>
+      <div id="texto">
+      </div>
     </div>
-
     <script src="funciones.js"></script>
-
+    <br>
+    <center>Cuando \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are</center>
+    $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
   </body>
 </html>

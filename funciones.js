@@ -3,7 +3,7 @@ function Raices(){
   var b = document.getElementById('B').value;
   var c = document.getElementById('C').value;
   var etqtexto=document.getElementById('texto');
-
+  etqtexto.style="display:block";
 
   if (a=="" || b=="" || c=="" ) {
     etqtexto.innerHTML="Favor de ingresar numeros";
@@ -22,13 +22,14 @@ function Raices(){
   }
   else if (a!=0 && b==0 && c==0) {
     if (a==1) {
-      etqtexto.innerHTML="X<sup>2</sup> = 0";
+      //etqtexto.innerHTML="x<sup>2</sup> = 0";
+      etqtexto.innerHTML='x^{2}';
     }
     else if (a==(-1)) {
-      etqtexto.innerHTML="-X<sup>2</sup> = 0";
+      etqtexto.innerHTML="-x<sup>2</sup> = 0";
     }
     else {
-      etqtexto.innerHTML=a+"X<sup>2</sup> = 0";
+      etqtexto.innerHTML=a+"x<sup>2</sup> = 0";
     }
   }
   else if (a!="" && b!="" && c!="") {
@@ -38,12 +39,12 @@ function Raices(){
       var b1=b/2;
 
       if (b1<0) {
-        etqtexto.innerHTML="Existe al menos una raiz <br> (X"+b1+")<sup>2</sup> = 0";
-        //document.getElementById('resultados').innerHTML="(X+"+b+")<sup>2</sup> = 0";
+        etqtexto.innerHTML="Existe al menos una raiz <br> (x"+b1+")<sup>2</sup> = 0";
+        //document.getElementById('resultados').innerHTML="(x+"+b+")<sup>2</sup> = 0";
       }
       else {
-        etqtexto.innerHTML="Existe al menos una raiz <br> (X+"+b1+")<sup>2</sup> = 0";
-        //document.getElementById('resultados').innerHTML="(X"+b+")<sup>2</sup> = 0";
+        etqtexto.innerHTML="Existe al menos una raiz <br> (x+"+b1+")<sup>2</sup> = 0";
+        //document.getElementById('resultados').innerHTML="(x"+b+")<sup>2</sup> = 0";
       }
 
     }
@@ -96,7 +97,7 @@ function Raices(){
                           '</div>'+
                     '</div>';
         }
-        etqtexto.innerHTML="Existen dos raices<br>"+"X<sub>1</sub> = "+x1+"<br>X<sub>2</sub> = "+x2;
+        etqtexto.innerHTML="Existen dos raices<br>"+"x<sub>1</sub> = "+x1+"<br>x<sub>2</sub> = "+x2;
         console.log("x1 = "+x1+" y x2 = "+x2);
       }
       else {
@@ -120,8 +121,8 @@ function Raices(){
                           dosa+
                         '</div>'+
                   '</div>';
-        //etqtexto.innerHTML="Existen dos raices<br>"+"X1 = "+x1+"<br>X2 = "+x2;
-        etqtexto.innerHTML="Existen dos raices<br>"+"X<sub>1</sub> = "+x1aux+"<br>X<sub>2</sub> = "+x2aux;
+        //etqtexto.innerHTML="Existen dos raices<br>"+"x1 = "+x1+"<br>x2 = "+x2;
+        etqtexto.innerHTML="Existen dos raices<br>"+"x<sub>1</sub> = "+x1aux+"<br>x<sub>2</sub> = "+x2aux;
       }
     }
     else {
@@ -174,7 +175,7 @@ function Raices(){
                         '</div>'+
                   '</div>';
       }
-      etqtexto.innerHTML="Raices imaginarias<br>"+"X<sub>1</sub> = "+x1+"<br>X<sub>2</sub> = "+x2;
+      etqtexto.innerHTML="Raices imaginarias<br>"+"x<sub>1</sub> = "+x1+"<br>x<sub>2</sub> = "+x2;
     }
     console.log("Discriminante= "+dis);
   }
@@ -196,18 +197,40 @@ function Factores1(){
   var a1=document.getElementById("a1").value;
   var b1=document.getElementById("b1").value;
   var etqtexto=document.getElementById('texto');
+  etqtexto.style="display:block";
+  var txt="";
+  //var A=1;
+  var B= parseInt(a1)+parseInt(b1);
+  var C=a1*b1;
 
   if (a1=="" || b1=="") {
     etqtexto.innerHTML="Favor de ingresar numeros";
   }
   else {
-    var x1=a1;
-    var x2=b1;
-    if (x1<0 || x2<0) {
-      x1=(-1)*x1;
-      x2=(-1)*x2;
+    var x1=(-1)*a1;
+    var x2=(-1)*b1;
+
+    if (B>0) {
+      if (C>0) {
+        txt="x<sup>2</sup> + "+B+"x + "+C+" = 0";
+      }
+      else {
+        txt="x<sup>2</sup> + "+B+"x "+C+" = 0";
+      }
     }
-    etqtexto.innerHTML="X<sub>1</sub> = "+x1+"<br> X<sub>2</sub> = "+x2;
+    else if(B<0){
+      if (C>0) {
+        txt="x<sup>2</sup> "+B+"x + "+C+" = 0";
+      }
+      else {
+        txt="x<sup>2</sup> "+B+"x "+C+" = 0";
+      }
+    }
+    else {
+      txt="x<sup>2</sup>"+C+" = 0";
+    }
+
+    etqtexto.innerHTML="x<sub>1</sub> = "+x1+"<br> x<sub>2</sub> = "+x2+"<br> Su forma desarrollada<br>"+txt;
   }
 }
 function Factores2(){
@@ -216,6 +239,7 @@ function Factores2(){
   var x1=document.getElementById("x1").value;
   var x2=document.getElementById("x2").value;
 
+
   var txt="";
 
   var A=r1*r2;
@@ -223,16 +247,16 @@ function Factores2(){
   var C=x1*x2;
 
   var etqtexto=document.getElementById('texto');
+  etqtexto.style="display:block";
   if (r1=="" || x1=="" || r2=="" || x2=="") {
     etqtexto.innerHTML="Favor de ingresar numeros";
   }
   else {
     var result1=x1/r1;
     var result2=x2/r2;
-    if (x1<0 || x2<0) {
-      x1=(-1)*x1;
-      x2=(-1)*x2;
-    }
+    result1=(-1)*(result1);
+    result2=(-1)*(result2);
+
     if (result1%1==0) {
       console.log("Es entero");
     }
@@ -241,7 +265,18 @@ function Factores2(){
       var mcd1 = MCD(x1,r1);
       var x1aux=x1/mcd1;
       var r1aux=r1/mcd1;
-      //result1=x1aux+"/"+r1aux;
+      if (r1aux<0 && x1aux>0){
+        r1aux=(-1)*r1aux;
+        x1aux=(-1)*x1aux;
+      }
+      else if (r1aux<0 && x1aux<0) {
+        r1aux=(-1)*r1aux;
+        x1aux=(-1)*x1aux;
+      }
+      else if(x1aux<0 && r1aux>0){
+        r1aux=r1aux;
+        x1aux=(-1)*x1aux;
+      }
       result1='<div style="display:inline-block;">'+
                       '<div>'+
                         x1aux+
@@ -259,7 +294,6 @@ function Factores2(){
       var mcd2 = MCD(x2,r2);
       var x2aux=x2/mcd2;
       var r2aux=r2/mcd2;
-      //result2=x2aux+"/"+r2aux;
       result2='<div style="display:inline-block;">'+
                       '<div>'+
                         x2aux+
@@ -269,15 +303,82 @@ function Factores2(){
                       '</div>'+
                 '</div>';
     }
-    if (B<0 || C<0) {
-      B=B*(-1);
-      //C=(-1)*C;
-      txt=A+"X<sup>2</sup> + "+B+"X "+C+" = 0";
+    if (B<0) {
+      if (C>0) {
+        if (A==1) {
+          txt="x<sup>2</sup> "+B+"x +"+C+" = 0";
+        }
+        else if (A==-1) {
+          txt="-x<sup>2</sup> "+B+"x +"+C+" = 0";
+        }
+        else {
+          txt=A+"x<sup>2</sup> "+B+"x +"+C+" = 0";
+        }
+      }
+      else {
+        if (A==1) {
+          txt="x<sup>2</sup> "+B+"x "+C+" = 0";
+        }
+        else if (A==-1) {
+          txt="-x<sup>2</sup> "+B+"x "+C+" = 0";
+        }
+        else {
+          txt=A+"x<sup>2</sup> "+B+"x "+C+" = 0";
+        }
+      }
     }
-    else {
-      txt=A+"X<sup>2</sup> "+B+"X +"+C+" = 0";
+    else if(B>0){
+      if (C>0) {
+        if (A==1) {
+          txt="x<sup>2</sup> +"+B+"x +"+C+" = 0";
+        }
+        else if (A==-1) {
+          txt="-x<sup>2</sup> +"+B+"x +"+C+" = 0";
+        }
+        else {
+          txt=A+"x<sup>2</sup> +"+B+"x +"+C+" = 0";
+        }
+      }
+      else {
+        if (A==1) {
+          txt="x<sup>2</sup> +"+B+"x "+C+" = 0";
+        }
+        else if (A==-1) {
+          txt="-x<sup>2</sup> +"+B+"x "+C+" = 0";
+        }
+        else {
+          txt=A+"x<sup>2</sup> +"+B+"x "+C+" = 0";
+        }
+      }
     }
-    etqtexto.innerHTML="X<sub>1</sub> = "+result1+"<br> X<sub>2</sub> = "+result2
-    +"<br> En su forma desarrolada<br>"+txt;
+    else if(B==0){
+      if (A==1) {
+        if (C>0) {
+          txt="x<sup>2</sup>+"+C+" = 0";
+        }
+        else {
+          txt="x<sup>2</sup>"+C+" = 0";
+        }
+      }
+      else if(A==-1){
+        //txt='[2x^{2}]';
+        if (C>0) {
+          txt="-x<sup>2</sup>+"+C+" = 0";
+        }
+        else {
+          txt="-x<sup>2</sup>"+C+" = 0";
+        }
+      }
+      else {
+        if (C>0) {
+          txt=A+"x<sup>2</sup>+"+C+" = 0";
+        }
+        else {
+          txt=A+"x<sup>2</sup>"+C+" = 0";
+        }
+      }
+    }
+    etqtexto.innerHTML="x<sub>1</sub> = "+result1+"<br> x<sub>2</sub> = "+result2
+    +"<br> En su forma desarrollada<br>"+txt;
   }
 }

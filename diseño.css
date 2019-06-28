@@ -30,6 +30,9 @@ input[type=number]{
 }
 #texto{
   /*border-top:solid 1px black;*/
+  font-size: 30px;
+  font-family: Bell MT;
+  font-style: italic;
   width: auto;
   height: auto;
   background:#fff;
@@ -37,6 +40,7 @@ input[type=number]{
   text-align: center;
   margin: auto;
   margin-top:10px;
+  display: none;
   -webkit-box-shadow: -5px 2px 7px 4px rgba(0,0,0,0.3);
 }
 #tabla{
